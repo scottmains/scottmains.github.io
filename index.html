@@ -65,7 +65,15 @@
                 theme: document.querySelector('#theme').value,
             };
 
-            options.customClasses = JSON.parse(document.querySelector('#customClasses').value);
+            const customClassesValue = document.querySelector('#customClasses').value;
+        
+            try {
+                options.customClasses = customClassesValue ? JSON.parse(customClassesValue) : {};
+            } catch (error) {
+                console.error("Error parsing custom classes:", error);
+                options.customClasses = {}; // or handle the error in another way
+            }
+
             MyBadges.settings(options);
         });
     });
