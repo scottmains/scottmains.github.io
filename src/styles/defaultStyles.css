@@ -13,7 +13,7 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 15px;
-    margin: 15px;
+    margin: 10px;
     text-align: center;
 }
 .card-content{
@@ -44,13 +44,13 @@
 
 @media (max-width: 768px) {
     .card-wrapper {
-        flex: 0 0 calc(50% - 30px); /* Adjust width for tablet */
+        flex: 0 0 calc(50%); /* Adjust width for tablet */
     }
 }
 
 @media (max-width: 576px) {
     .card-wrapper {
-        flex: 0 0 calc(100% - 30px); /* Adjust width for mobile */
+        flex: 0 0 calc(100%); /* Adjust width for mobile */
     }
 }
 

@@ -33,7 +33,7 @@ const STYLES_MAP = {
         },
         list: {
             container: ['list-unstyled', 'row'],
-            badgeWrapper: ['media', 'col-md-5', "mt-4", "border", "p-3", "d-flex", 'bg-white', 'm-2'],
+            badgeWrapper: ['media', 'col-md-6', "mt-4", "border", "d-flex", 'bg-white', "p-3"],
             badgeContent: ['media-body', 'p-3'],
             badgeImage: ['mr-3', 'align-self-start'],
             badgeName: ['mt-0', 'mb-1'],
@@ -44,7 +44,7 @@ const STYLES_MAP = {
     tailwind: {
         card: {
             container: ['flex', 'flex-wrap', 'row'],
-            badgeWrapper: ['bg-white', 'border', 'border-gray-200', 'm-3', 'p-3', 'rounded', 'shadow-md', 'items-center', 'md:w-1/4', "overflow-hidden"],
+            badgeWrapper: ['bg-white', 'border', 'border-gray-200', 'm-3', 'p-3', 'rounded', 'shadow-md', 'items-center',  "overflow-hidden"],
             badgeContent: ['text-center', 'flex-grow'], 
             badgeImage: ['w-full', 'mx-auto', 'block'],
             badgeSummary: ['text-gray-700', 'text-sm', 'mt-2'],
@@ -53,7 +53,7 @@ const STYLES_MAP = {
         },
         list: {
             container: ['flex', 'flex-wrap', 'list-none'],
-            badgeWrapper: ['flex', 'w-full', 'lg:w-1/3', 'bg-white', 'border', 'border-gray-200','m-2', 'p-3', 'rounded', 'shadow-md'],
+            badgeWrapper: ['flex', 'w-full', 'md:w-1/2', 'bg-white', 'border', 'border-gray-200', 'p-3', 'rounded', 'shadow-md'],
             badgeContent: ['flex', 'flex-col', 'ml-4'],
             badgeImage: ['border', 'border-gray-200', 'shadow-sm'],
             badgeName: ['text-lg', 'font-bold', 'mt-2'],
@@ -117,15 +117,15 @@ export default class BadgesWidget {
         const cardName = document.createElement('h5');
         cardName.innerText = badgeData.badgeName;
         this.applyStyles(cardName, 'badgeName');
-      //  const cardDescription = document.createElement('p');
-       // cardDescription.innerText = badgeData.badgeDescription;
-     //   this.applyStyles(cardDescription, 'badgeDescription');
+        // const cardDescription = document.createElement('p');
+        // cardDescription.innerText = badgeData.badgeDescription;
+        // this.applyStyles(cardDescription, 'badgeDescription');
 
         const cardIssuedBy = document.createElement('p');
         cardIssuedBy.innerText = "Issued by " + badgeData.issuedByName; 
         this.applyStyles(cardIssuedBy, 'badgeIssuedBy');
         cardBody.appendChild(cardName);
-      //  cardBody.appendChild(cardDescription);
+        //  cardBody.appendChild(cardDescription);
         cardBody.appendChild(cardIssuedBy);
         card.appendChild(cardBody); 
         return card;
