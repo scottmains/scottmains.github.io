@@ -1,1 +1,88 @@
-<p> Hello </p>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" /> 
+    <link rel="stylesheet"  href="src/styles/defaultStyles.css" />
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="...policy details...">
+    <title>Openbadges widget</title>
+</head>
+<body>
+    <button id="settings-btn" class="btn btn-primary">Show Settings</button>
+    <div id="settings-inputs" class="container settings-hidden">
+        <h1>MyBadges Settings</h1>
+        <form>
+            <div class="mb-3">
+                <label for="apiKey" class="form-label">API Key</label>
+                <input type="text" class="form-control" id="apiKey" name="apiKey" placeholder="Enter API Key">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
+            </div>
+            <div class="mb-3">
+                <label for="containerId" class="form-label">Container ID</label>
+                <input type="text" class="form-control" id="containerId" name="containerId" placeholder="Enter Container ID">
+            </div>
+            <div class="mb-3">
+                <label for="displayStyle" class="form-label">Display Style</label>
+                <select class="form-select" id="displayStyle" name="displayStyle">
+                    <option value="card">Card</option>
+                    <option value="list">List</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="theme" class="form-label">Theme</label>
+                <select class="form-select" id="theme" name="theme">
+                    <option value="bootstrap">Bootstrap</option>
+                    <option value="tailwind">Tailwind</option>
+                    <option value="css">Css</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="customClasses" class="form-label">Custom Classes</label>
+                <textarea class="form-control" id="customClasses" name="customClasses" rows="3" placeholder='{"badgeWrapper": ["class1", "class2"], "badgeContent": ["class3"]}'>
+                </textarea>      
+            </div>
+            <button type="submit" class="btn btn-warning" >Save Settings</button>
+        </form>
+    </div>
+
+    <div id="app"></div>
+    <script type="module" src="src/index.js"></script>
+    <script type="text/javascript">
+    window.addEventListener('DOMContentLoaded', (event) => {  
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const options = {
+                apiKey: document.querySelector('#apiKey').value,
+                email: document.querySelector('#email').value,
+                containerId: document.querySelector('#containerId').value,
+                displayStyle: document.querySelector('#displayStyle').value,
+                theme: document.querySelector('#theme').value,
+            };
+
+            options.customClasses = JSON.parse(document.querySelector('#customClasses').value);
+            MyBadges.settings(options);
+        });
+    });
+
+
+    const settingsBtn = document.querySelector('#settings-btn');
+const settingsInputs = document.querySelector('#settings-inputs');
+
+    settingsBtn.addEventListener('click', function() {
+    settingsInputs.classList.toggle('settings-hidden');
+    if (settingsInputs.classList.contains('settings-hidden')) {
+        settingsBtn.textContent = 'Show Settings';
+    } else {
+        settingsBtn.textContent = 'Hide Settings';
+    }
+    });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
