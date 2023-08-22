@@ -51,7 +51,7 @@
     </div>
 
     <div id="app"></div>
-    <script type="module" src="src/index.js"></script>
+        <script type="module" src="./src/index.js"></script>
     <script type="text/javascript">
     window.addEventListener('DOMContentLoaded', (event) => {  
         const form = document.querySelector('form');
@@ -71,7 +71,7 @@
                 options.customClasses = customClassesValue ? JSON.parse(customClassesValue) : {};
             } catch (error) {
                 console.error("Error parsing custom classes:", error);
-                options.customClasses = {}; // or handle the error in another way
+                options.customClasses = {};
             }
 
             MyBadges.settings(options);
@@ -80,7 +80,7 @@
 
 
     const settingsBtn = document.querySelector('#settings-btn');
-const settingsInputs = document.querySelector('#settings-inputs');
+    const settingsInputs = document.querySelector('#settings-inputs');
 
     settingsBtn.addEventListener('click', function() {
     settingsInputs.classList.toggle('settings-hidden');
