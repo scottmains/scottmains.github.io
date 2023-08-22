@@ -1,4 +1,4 @@
-import { fetchData } from '../utils/api';
+import { fetchData } from '../utils/api.mjs';
 
 const STYLES_MAP = {
     css:{
