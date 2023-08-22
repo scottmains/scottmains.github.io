@@ -1,4 +1,4 @@
-import BadgesWidget from './components/BadgesWidget';
+import BadgesWidget from './components/BadgesWidget.mjs';
 
 window.MyBadges = {
     settings: function(options) {

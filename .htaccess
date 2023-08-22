@@ -1,1 +1,2 @@
 AddType application/javascript .js
+AddType application/javascript .mjs
